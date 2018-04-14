@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Separador de frases</title>
+	<meta charset="utf-8">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+	<!-- Insira texto em Inglês OU uma frase em inglês e outra em português alternadamente-->
+	<div class='container'>
+	<p id="texto1">
+		First phrase.
+		Second phrase.
+		Third phrase.
+	</p>
+	<!-- Insira texto em Português-->
+	<p id="texto2">	
+		Primeira frase.
+		Segunda frase.
+		Terceira frase.
+	</p>
+	<div class="btn-group">
+		<input class="btnTabela btn btn-default" id="btnSeparado" type="button" value="Textos separados" size="1" />
+		<input class="btnTabela btn btn-info" id="btnJunto"type="button" value="Textos juntos" size="1" />  
+	</div>
+
+	<table id="tabelaIngPort" class="table table-bordered table-hover" border="1">
+		<tr id="head">
+			<thead>
+				<td>Inglês</td>
+				<td>Português</td>
+			</thead>
+		</tr>
+
+
+	</table>
+
+	<input id="caixaTexto" type="text" name="Nome" size="1" /> 
+	</div>
+
+
+
+	</script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script>
+
+		function ler(texto){
+		var Arfrases = texto.replace(/[.[\]\\]/g, ".|").replace(/[?[\]\\]/g, "?|").replace(/[![\]\\]/g, "!|").split("|");
+		return Arfrases
+		}
+
+		function lerJunto(texto){
+		var Arfrases = texto.split("\n");
+		return Arfrases
+		}
+
+		function criarLinha(textoIng, textoPort){
+			$('table#tabelaIngPort').append("<tr><td class='conteudo ingles'>" + textoIng +"</td><td class='conteudo portugues'>" + textoPort + "</td></tr>")
+		}
+
+		function clicarTd(){
+			$("td.conteudo").click(function(){
+				$('#caixaTexto').show();
+				$('#caixaTexto').val($(this).text());
+				$(this).addClass("success");
+				$('#caixaTexto').select();
+				document.execCommand('copy')
+				$('#caixaTexto').hide();
+			})
+		}
+
+
+		$(function(){
+			$('#caixaTexto').hide();
+			$('#tabelaIngPort').hide();
+
+		})
+
+		$("#btnSeparado").click(function(){
+			$('.btnTabela').hide();
+			$('#tabelaIngPort').show();
+			$('#texto1').hide();
+			$('#texto2').hide();
+			var frasesIng = ler(document.getElementById("texto1").innerHTML);
+			var frasesPort = ler(document.getElementById("texto2").innerHTML);
+			for(var i=0;i<frasesIng.length - 1; i++){
+				criarLinha(frasesIng[i], frasesPort[i]);
+			}
+			clicarTd();
+		})
+
+		$("#btnJunto").click(function(){
+			$('.btnTabela').hide();
+			$('#texto1').hide();
+			$('#tabelaIngPort').show();
+			var frases = ler(document.getElementById("texto1").innerHTML);
+			for(var i=0;i<frases.length - 1; i+=2){
+				criarLinha(frases[i], frases[i+1]);
+			}
+			clicarTd();
+		})
+
+		
+			
+
+		
+
+
+		
+
+	</script>
+
+</body>
+</html>
