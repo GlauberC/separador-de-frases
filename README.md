@@ -1,7 +1,7 @@
 # separador-de-frases
 Separa textos em inglês de sua tradução, para que cada frase fique lado a lado em uma tabela(cada coluna será um idioma).  
-Ao clicar na frase automaticamente o a frase será copiada para que possa ser colada onde o usuário quiser.
-
+Ao clicar na frase automaticamente o a frase será copiada(e também mudará de cor) para que possa ser colada onde o usuário quiser.
+---
 ## Como usar ?
 1. Abra o código em seu editor de texto ou ide.
 2. Encontre a tag **\<p id="texto1"\>** e insira o texto, antes do seu fechamento. Você pode inserir o texto de duas maneiras.
@@ -26,6 +26,11 @@ Ao clicar na frase automaticamente o a frase será copiada para que possa ser co
 3. Baseado na sua escolhe de como colocou o texto,  escolha o botão equivalente. 
     * Textos separados caso tenha usado **\<p id="texto1"\>** e **\<p id="texto2"\>**
     * Textos juntos caso tenha alternado as frases usando apenas o **\<p id="texto1"\>**
+4. Para que a frase seja copiada, basta clicar. Haverá um mudança de cor para informar ao usuário que ele clicou nessa frase. 
+---
+## Exemplo
 
-## Dicas de uso.
+![alt text](https://github.com/GlauberC/separador-de-frases/blob/master/Exemplo.png)
+---
+## Dicas de uso
 Esse programa foi feito exclusivamente para adicionar frases no Anki. Caso não conheça essa ferramenta acesse https://pt.wikipedia.org/wiki/Anki .
