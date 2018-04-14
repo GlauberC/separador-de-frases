@@ -5,7 +5,7 @@ Ao clicar na frase automaticamente o a frase será copiada(e também mudará de 
 
 ---
 ## Como usar ?
-1. Abra o código em seu editor de texto ou ide.
+1. Abra o separado.html em seu editor de texto ou ide.
 2. Encontre a tag **\<p id="texto1"\>** e insira o texto, antes do seu fechamento. Você pode inserir o texto de duas maneiras.
     * Insira apenas o texto em inglês e na tag **\<p id="texto2"\>** insira o texto em português
     ```
